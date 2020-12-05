@@ -1,0 +1,7 @@
+- Segment Tree implementation
+- types:
+	- max
+	- min
+	- sum
+	- xor, and, or
+	- gcd
