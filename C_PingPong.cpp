@@ -188,20 +188,9 @@ T power(T a, T b, T mod)
 
 void foo(int cntz)
 {
-    int n;
-    In(n);
-    vll dp;
-    for(int i=0; i<10000; i++)
-        dp.PB((i*(i+1))/2);
-    
-    while(n--)
-    {
-        ll x;
-        In(x);
-        int pos= lower_bound(dp.begin(), dp.end(), x)-dp.begin();
-        if((pos*(pos+1))/2-1==x) pos++;
-        Out(pos);
-    }
+    int x, y;
+    In2(x, y);
+    Out2(x-bool(y), y);
 }
 
 int main()
@@ -210,7 +199,7 @@ int main()
     cin.tie(NULL);
     
     int t=1, c=0;
-    // cin>> t;
+    cin>> t;
     
     while(t--)
 		foo(++c);
