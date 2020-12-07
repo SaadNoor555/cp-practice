@@ -188,20 +188,30 @@ T power(T a, T b, T mod)
 
 void foo(int cntz)
 {
-    int n, x, c=0;
+    int n, x, c1=0, c2=0;
     bool flag= 1;
     In2(n, x);
+    int xc= x;
     vint a= InVin(n);
     for(int i=0; i<n-1; i++)
     {
         if(a[i]>a[i+1])
         {
-            c+= i+1-(upper_bound(a.begin(), a.begin()+i, x)-a.begin());
+            c1+= i+1-(upper_bound(a.begin(), a.begin()+i, x)-a.begin());
             flag&= bool(x<=a[i+1]);
             x= a[i];
         }
     }
-   flag? Out(c) : Out(-1);
+
+    for(int i= n-1; i>=1; i--)
+    {
+        if(a[i]<a[i-1])
+        {
+            c2+= i+1-(upper_bound(a.begin(), a.begin()+i, xc)-a.begin());
+            xc= a[i];
+        }
+    }
+    flag? Out(min(c1, c2)) : Out(-1);
     
 }
 
