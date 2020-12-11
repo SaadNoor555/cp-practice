@@ -218,6 +218,8 @@ void update(int idx, const int sm,int sl, int sr, int l, int r)
 
     if(sl<=mid) update(2*idx, sm, sl, min(mid, sr), l, mid);
     if(sr>=mid+1) update(2*idx+1, sm, max(sl, mid+1), sr, mid+1, r);
+
+    
 }
 
 int query(int idx, int sl, int sr, int l, int r)
