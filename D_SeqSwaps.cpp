@@ -192,17 +192,12 @@ void foo(int cntz)
     bool flag= 1;
     In2(n, x);
     vint a= InVin(n);
-    for(int i=0; i<n-1; i++)
+    for(int i=0; i<n; i++)
     {
-        if(a[i]>a[i+1])
-        {
-            c+= i+1-(upper_bound(a.begin(), a.begin()+i, x)-a.begin());
-            flag&= bool(x<=a[i+1]);
-            x= a[i];
-        }
+        if(is_sorted(a.begin(), a.end())) break;
+        if(a[i]>x) c++, swap(a[i], x);
     }
-   flag? Out(c) : Out(-1);
-    
+   is_sorted(a.begin(), a.end())? Out(c) : Out(-1);
 }
 
 int main()
