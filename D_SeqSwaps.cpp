@@ -59,7 +59,7 @@
 #include<map>
 #include<iomanip> 
 #include<stack>
-
+ 
 #define FOR(iterator, in,  limit, adder) for(int iterator=in; iterator<limit; iterator+=adder)
 #define rep(i, n)               for(int i=0; i<n; i++)
 #define PI 						3.1415926535897932384626433832795
@@ -98,28 +98,28 @@
 #define InVpll(n)               InVPair<ll>(n)
 #define powll(n, p, mod)        power<ll>(n, p, mod);
 #define powint(n, p, mod)       power<int>(n, p, mod);
-
+ 
 typedef long int 				int32;
 typedef unsigned long int 		uint32;
 typedef long long int 			int64;
 typedef unsigned long long int  uint64;
 typedef long long 				ll;
-
+ 
 using namespace std;
-
+ 
 template <typename T>
 void InArT(T *ar, int n)
 {
     rep(i, n) In(ar[i]);
 }
-
+ 
 template <typename T>
 void OutArT(T *a, int n)
 {
     rep(i, n) cout<< a[i]<<" ";
     cout<<"\n";
 }
-
+ 
 template <typename T>
 vector<T> InVec(int n)
 {
@@ -132,24 +132,24 @@ vector<T> InVec(int n)
 	}
 	return a;
 }
-
+ 
 template <typename T>
 void OutVec(vector<T> a)
 {
     rep(i, a.size())
         cout<< a[i]<< " ";
-
+ 
     cout<< "\n";
 }
-
-
+ 
+ 
 template <typename T>
 void InPair(pair<T, T> *a, int n)
 {
     rep(i ,n)
         In2(a.FR, a.SC);
 }
-
+ 
 template <typename T>
 pair<T, T> InVPair(int n)
 {
@@ -163,7 +163,7 @@ pair<T, T> InVPair(int n)
     
     return a;
 }
-
+ 
 template <typename T>
 T gcd(T a, T b) 
 {
@@ -171,7 +171,7 @@ T gcd(T a, T b)
    return a;
    return gcd(b, a % b);
 }
-
+ 
 template <typename T>
 T power(T a, T b, T mod)
 {
@@ -184,44 +184,22 @@ T power(T a, T b, T mod)
     }
     return ans%mod;
 }
-
-
+ 
+ 
 void foo(int cntz)
 {
-    int n, x, c1=0, c2=0;
+    int n, x, c=0;
     bool flag= 1;
     In2(n, x);
-    int xc= x;
     vint a= InVin(n);
     for(int i=0; i<n; i++)
     {
-<<<<<<< HEAD
         if(is_sorted(a.begin(), a.end())) break;
         if(a[i]>x) c++, swap(a[i], x);
     }
    is_sorted(a.begin(), a.end())? Out(c) : Out(-1);
-=======
-        if(a[i]>a[i+1])
-        {
-            c1+= i+1-(upper_bound(a.begin(), a.begin()+i, x)-a.begin());
-            flag&= bool(x<=a[i+1]);
-            x= a[i];
-        }
-    }
-
-    for(int i= n-1; i>=1; i--)
-    {
-        if(a[i]<a[i-1])
-        {
-            c2+= i+1-(upper_bound(a.begin(), a.begin()+i, xc)-a.begin());
-            xc= a[i];
-        }
-    }
-    flag? Out(min(c1, c2)) : Out(-1);
-    
->>>>>>> 5d08596183770a86bd1ce272b5116a36a969de45
 }
-
+ 
 int main()
 {
     ios_base::sync_with_stdio(false);
@@ -233,5 +211,5 @@ int main()
     while(t--)
 		foo(++c);
 }
-
+ 
 /* All Rights Reserved by Saad Noor*/
