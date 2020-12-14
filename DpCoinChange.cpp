@@ -62,7 +62,24 @@ ll SingleCoinSwapOrder(vector<T> coins, T n, T val)
     return dp[val];
 }
 
+template<typename T>
+//change the value of MAX coins required before use
+ll MinCoinChange(vector<T>coins, T n, T val)
+{
+    MAX= 10001;
+    ll dp[val+5];
+    for(int i=1; i<val+5; i++)
+        dp[i]= MAX;
+    dp[0]= 0;
+    sort(coins.begin(), coins.end());
+    
+    for(int sm=1; sm<=val; sm++)
+        for(int idx=0; idx<n; idx++)
+            if(sm-coins[idx]>=0) dp[sm]= min(dp[sm], dp[sm-coins[idx]]+1);
 
+    if(dp[val]==MAX) dp[val]= -1;
+    return dp[val];
+}
 
 
 int main()
@@ -77,6 +94,7 @@ int main()
         cn.push_back(t1);
     }
 
-    cout<< InfCoinSwapUnorder<int>(cn, m, n)<< '\n';
-    cout<< InfCoinSwapOrder<int>(cn, m, n)<< '\n';
+    // cout<< InfCoinSwapUnorder<int>(cn, m, n)<< '\n';
+    // cout<< InfCoinSwapOrder<int>(cn, m, n)<< '\n';
+    // cout<< MinCoinChange<int>(cn, m, n)<< '\n';
 }
