@@ -72,7 +72,7 @@ int main()
     {
         cs++;
         string a, b;
-        a="AGGTAB", b="GXTXAYB";
+        cin>> a>> b;
         // cout<< LCS<int>(a, b, a.length(), b.length())<< '\n';
         cout<< LCSprint<int>(a, b, a.length(), b.length())<< '\n';
     }
