@@ -205,14 +205,16 @@ void foo(int cntz)
     a= InVin(n);
     ll ans=0;
     sort(a.begin(), a.end());
+    rep(i, n) cout<< a[i]<< ' ';
+    Out("");
     for(ll i=0; i<n-m+1; i++)
     {
         ll j= upper_bound(a.begin(), a.end(), a[i]+k)-a.begin();
-        // cout<< j<< ' ';
+        cout<< j-i-1<< ' ';
         ans+=NC2(j-i-1, m-1);
         ans%=MOD;
     }
-    // cout<< '\n';
+    cout<< '\n';
     Out(ans);
 }
 
