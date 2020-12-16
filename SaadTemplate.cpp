@@ -31,7 +31,7 @@ typedef unsigned long long				ull;
 
 using namespace std;
 
-void run(int cntz);
+void RUN(int cntz);
 ll pow_a_b(ll a, ll b, ll mod);
 template<typename T>
 T GCD(T a, T b);
@@ -41,10 +41,10 @@ int main()
 	int t=1, cnt=0;
 	cin>> t;
 	while(++cnt)
-		run(cnt);
+		RUN(cnt);
 }
 //DRIVER FUNCTION HERE
-void run(int cntz)
+void RUN(int cntz)
 {
 	int n;
 	cin>> n;
