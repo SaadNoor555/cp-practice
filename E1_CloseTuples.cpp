@@ -173,6 +173,7 @@ T gcd(T a, T b)
 }
 
 template <typename T>
+// for a^b
 T power(T a, T b, T mod)
 {
     T ans= 1;
@@ -184,37 +185,36 @@ T power(T a, T b, T mod)
     }
     return ans%mod;
 }
+
+vll fac;
+
 const ll MOD= 1000000007;
-ll NC2(ll n, int m)
+ll NCR(ll n, ll r)
 {
-    if(n<m) return 0;
-    ll ans= 1;
-    for(int i=0; i<m; i++)
-    {
-        ans*=(n-i);
-        ans%=MOD;
-    }
-    return ans;
+    if(r>n) return 0; 
+    ll ans= (fac[n]*power(fac[r], MOD-2, MOD))%MOD;
+    ans*=power(fac[n-r], MOD-2, MOD);
+    return ans%MOD;
 }
 
 void foo(int cntz)
 {
-    int n, m, k;
+    ll n, m, k;
     cin>> n>> m>> k;
     vint a;
     a= InVin(n);
     ll ans=0;
     sort(a.begin(), a.end());
-    rep(i, n) cout<< a[i]<< ' ';
-    Out("");
+    // rep(i, n) cout<< a[i]<< ' ';
+    // Out("");
     for(ll i=0; i<n-m+1; i++)
     {
         ll j= upper_bound(a.begin(), a.end(), a[i]+k)-a.begin();
-        cout<< j-i-1<< ' ';
-        ans+=NC2(j-i-1, m-1);
+        // cout<< j-i<< ':'<< (NCR(j-i-1, m-1))<< '\n';
+        ans+=(NCR(j-i-1, m-1));
         ans%=MOD;
     }
-    cout<< '\n';
+    // cout<< '\n';
     Out(ans);
 }
 
@@ -222,7 +222,9 @@ int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    
+    fac.PB(1);
+    for(int i=1; i<200005; i++)
+        fac.PB((fac[i-1]*i)%MOD);
     int t=1, c=0;
     cin>> t;
     
