@@ -42,7 +42,7 @@ T GCD(T a, T b);
 int main()
 {
 	int t=1, cnt=0;
-	cin>> t;
+	// cin>> t;
 	while(t--)
 		RUN(cnt);
 }
@@ -50,7 +50,20 @@ int main()
 void RUN(int cntz)
 {
 	int n;
+    ll an1=0, an2=0;
 	cin>> n;
+    
+    if(!(n&1))
+    {
+        an2= (n-1)*(n-2)*(n-4);
+        an2/=(GCD<int>((n-3), (n-1))*GCD<int>((n-1), (n-2))*GCD<int>((n-2), (n-3)));
+        // cout<<(GCD<int>((n-3), (n-1))*GCD<int>((n-1), (n-2))*GCD<int>((n-2), (n-3)))<<'\n';
+
+        an1= n*(n-1)*(n-3);
+        an1/=(GCD<int>((n-3), (n-1))*GCD<int>((n-1), n)*GCD<int>(n, (n-3)));
+        Debug2(an1, an2);
+    }
+    Out(max(an1, an2));
 }
 
 

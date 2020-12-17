@@ -39,18 +39,51 @@ template<typename T>
 T GCD(T a, T b);
 
 
+int n, m;
+bitset<25>room[25];
+
+int maxper(int lvl, int pos)
+{
+    Debug2(lvl, pos);
+    for(int i= lvl; i<n; i++)
+        for(int j=pos; j<m; j++)
+        {
+            if(room[i][j])
+            {
+                int r1= (i-lvl+1)+(j-pos);
+                int r2= (i-lvl)+(m-j);
+                Debug2(i, j);
+                return 2*max(r1, r2);
+            }
+        }
+
+    return 2*((n-lvl)+(m-pos));
+}
+
 int main()
 {
 	int t=1, cnt=0;
-	cin>> t;
+	// cin>> t;
 	while(t--)
-		RUN(cnt);
+		RUN(++cnt);
 }
 //DRIVER FUNCTION HERE
 void RUN(int cntz)
 {
-	int n;
-	cin>> n;
+	cin>> n>> m;
+    int maxm=0;
+    string s;
+    rep(i, n)
+    {
+        cin>> s;
+        rep(j, m) 
+            room[i][j]= (s[i]=='1');
+    }
+    rep(i, n)
+        rep(j, m)
+            maxm= max(maxm, maxper(i, j));
+
+    Out(maxm);
 }
 
 

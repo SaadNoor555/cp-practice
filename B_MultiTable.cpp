@@ -42,15 +42,20 @@ T GCD(T a, T b);
 int main()
 {
 	int t=1, cnt=0;
-	cin>> t;
+	// cin>> t;
 	while(t--)
 		RUN(cnt);
 }
 //DRIVER FUNCTION HERE
 void RUN(int cntz)
 {
-	int n;
-	cin>> n;
+	ll n, x;
+	cin>> n>> x;
+    int ans=0;
+    for(int i=1; i<=n; i++)
+        if(!(x%i) && x/i<=n) ans++;
+	// cout<< '\n';
+	Out(ans);
 }
 
 

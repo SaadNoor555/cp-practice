@@ -42,15 +42,50 @@ T GCD(T a, T b);
 int main()
 {
 	int t=1, cnt=0;
-	cin>> t;
+	// cin>> t;
 	while(t--)
 		RUN(cnt);
 }
 //DRIVER FUNCTION HERE
 void RUN(int cntz)
 {
-	int n;
-	cin>> n;
+	double x, y, n;
+    int a1, a2;
+	cin>> x>> y>> n;
+    double frac, frac1, inp= (x/y), minf= 10005;
+    // Debug(minf);
+    for(int i=1; i<=n; i++)
+    {
+        double j= int((i*x)/y);
+        frac1= ((j+1)/i);
+        frac= (j/i);
+
+        if(abs(frac-inp)<minf)
+        {
+            // Debug(minf);
+            a1= j;
+            a2= i;
+            minf= abs(frac-inp);
+        }
+        if(abs(frac1-inp)<minf)
+        {
+            // Debug(minf);
+            a1= j+1;
+            a2= i;
+            minf= abs(frac1-inp);
+        }
+    }
+    // cout<< '\n';
+    for(int i=min(a1, a2); i>1; i--)
+    {
+        if(!(a1%i) && !(a2%i))
+        {
+            a1/=i;
+            a2/=i;
+            i= min(a1, a2)-1;
+        }
+    }
+    cout<< a1<< '/'<< a2<< '\n';
 }
 
 

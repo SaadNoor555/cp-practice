@@ -42,7 +42,7 @@ T GCD(T a, T b);
 int main()
 {
 	int t=1, cnt=0;
-	cin>> t;
+	// cin>> t;
 	while(t--)
 		RUN(cnt);
 }
@@ -51,6 +51,20 @@ void RUN(int cntz)
 {
 	int n;
 	cin>> n;
+    int mx1, mx2, mx3, mn1, mn2, mn3;
+    cin>> mn1>> mx1>> mn2>> mx2>> mn3>> mx3;
+
+    int an1=mn1, an2=mn2, an3=mn3;
+    if(an1+an2+an3<n)
+        an1=0, an1+=min(n-an1-an2-an3, mx1);
+
+    if(an1+an2+an3<n)
+        an2=0, an2+=min(n-an1-an2-an3, mx2);
+
+    if(an1+an2+an3<n)
+        an3=0, an3+=min(n-an1-an2-an3, mx3);
+
+    cout<< an1<< ' '<< an2<< ' '<< an3<< '\n';
 }
 
 
