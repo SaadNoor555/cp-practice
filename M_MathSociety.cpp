@@ -83,7 +83,7 @@ void RUN(int cntz)
         for(int j= 0; j<9; j++)
         {
             if((i+j)%10==0);
-            else foo()
+            else foo();
         }
 
         cp[i]= s;
