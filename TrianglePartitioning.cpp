@@ -49,8 +49,10 @@ int main()
 //DRIVER FUNCTION HERE
 void RUN(int cntz)
 {
-	int n;
-	cin>> n;
+	double ab, ac, bc, rt;
+    cin>> ab>> ac>> bc>> rt;
+
+    
 }
 
 

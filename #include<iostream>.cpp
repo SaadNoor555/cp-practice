@@ -44,12 +44,12 @@ int main()
 	int t=1, cnt=0;
 	cin>> t;
 	while(t--)
-		RUN(++cnt);
+		RUN(cnt);
 }
 //DRIVER FUNCTION HERE
 void RUN(int cntz)
 {
-	int n;
+	ll x1, x2, y1, y2;
 	cin>> n;
 }
 

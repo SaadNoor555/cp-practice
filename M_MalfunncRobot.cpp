@@ -44,13 +44,21 @@ int main()
 	int t=1, cnt=0;
 	cin>> t;
 	while(t--)
-		RUN(++cnt);
+		RUN(cnt);
 }
 //DRIVER FUNCTION HERE
 void RUN(int cntz)
 {
-	int n;
-	cin>> n;
+	ll x1, x2, y1, y2, ans;
+	cin>> x1>> y1>> x2>> y2;
+    ll dx, dy;
+    dx= abs(x1-x2);
+    dy= abs(y1-y2);
+    // Debug2(dx, dy);
+    ans= max(dx, dy)*2;
+    if((dx&1)!=(dy&1)) ans--;
+
+    Out(ans);
 }
 
 
