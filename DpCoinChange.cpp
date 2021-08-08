@@ -136,8 +136,8 @@ int main()
     cin.tie(NULL);
     
     int t;
-    cin>> t;
-    // t=1;
+    // cin>> t;
+    t=1;
     while(t--)
     {
         int n, s;

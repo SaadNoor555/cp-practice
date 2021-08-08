@@ -20,8 +20,8 @@ T LIS(vector<T>ar, T n)
             dp[j]= ar[i];
         }
     }
-    for(auto x: dp)
-        cout<< x<< ' ';
+    for(int i=1; i<=mx; i++)
+        cout<< dp[i]<< ' ';
     cout<<'\n';
     return mx;
 }
